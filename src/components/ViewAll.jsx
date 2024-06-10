@@ -3,56 +3,80 @@ import Navbar from './Navbar'
 
 const ViewAll = () => {
 
-    const [data,changeData] = useState(
+    const [data, changeData] = useState(
         [
-            {"Name":"ORWEL","AdmNo":111,"Roll":26 },
-            {"Name":"RICHI","AdmNo":121,"Roll":27 },
-            {"Name":"JOE","AdmNo":131,"Roll":28 },
-            {"Name":"RITHWIK","AdmNo":411,"Roll":29 },
-            {"Name":"MEGHNA","AdmNo":151,"Roll":36 },
-            {"Name":"SIVA","AdmNo":116,"Roll":37 },
-            {"Name":"NIVEDHYA","AdmNo":611,"Roll":38 },
-            {"Name":"ORWEL","AdmNo":111,"Roll":26 },
-            {"Name":"RICHI","AdmNo":121,"Roll":27 },
-            {"Name":"JOE","AdmNo":131,"Roll":28 },
-            {"Name":"RITHWIK","AdmNo":411,"Roll":29 },
-            {"Name":"MEGHNA","AdmNo":151,"Roll":36 },
-            {"Name":"SIVA","AdmNo":116,"Roll":37 },
-            {"Name":"NIVEDHYA","AdmNo":611,"Roll":38 }
+            {
+                "name":"Orwel",
+                "rollNo":"122",
+                "admNo":"717",
+                "college":"fisat"
+            },
+            {
+                "name":"Orwel",
+                "rollNo":"122",
+                "admNo":"717",
+                "college":"fisat"
+            },
+            {
+                "name":"Orwel",
+                "rollNo":"122",
+                "admNo":"717",
+                "college":"fisat"
+            },
+            {
+                "name":"Orwel",
+                "rollNo":"122",
+                "admNo":"717",
+                "college":"fisat"
+            },
+            {
+                "name":"Orwel",
+                "rollNo":"122",
+                "admNo":"717",
+                "college":"fisat"
+            }
         ]
     )
-
-  return (
-    <div>
-        <Navbar/>
-        <div className="container">
-            <div className="row">
-                <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <div className="row g-3">
-
-                        {data.map(
-                            (value,index) => {
-                                return <div className="col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
-                            
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{value.Name}</h5>
-                                        <p class="card-text">{value.AdmNo}</p>
-                                        <p><b>{value.Roll}</b></p>
-                                        <a href="#" class="btn btn-primary">MoreDetails</a>
-                                    </div>
-                                </div>
     
-                            </div>
-                            }
-                        )}
+
+    return (
+        <div>
+            <Navbar />
+            <div className="container">
+                <div className="row">
+                    <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sl.No</th>
+                                    <th scope="col">FullName</th>
+                                    <th scope="col">RollNo</th>
+                                    <th scope="col">College</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    data.map(
+                                        (value,index)=>{
+                                            return <tr>
+                                            <th scope="row">{index}</th>
+                                            <td>{value.name}</td>
+                                            <td>{value.rollNo}</td>
+                                            <td>{value.college}</td>
+                                        </tr>
+                                        }
+                                    )
+                                }
+                                
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ViewAll
