@@ -1,44 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios'
 
 const ViewAll = () => {
 
-    const [data, changeData] = useState(
-        [
-            {
-                "name":"Orwel",
-                "rollNo":"122",
-                "admNo":"717",
-                "college":"fisat"
-            },
-            {
-                "name":"Orwel",
-                "rollNo":"122",
-                "admNo":"717",
-                "college":"fisat"
-            },
-            {
-                "name":"Orwel",
-                "rollNo":"122",
-                "admNo":"717",
-                "college":"fisat"
-            },
-            {
-                "name":"Orwel",
-                "rollNo":"122",
-                "admNo":"717",
-                "college":"fisat"
-            },
-            {
-                "name":"Orwel",
-                "rollNo":"122",
-                "admNo":"717",
-                "college":"fisat"
+    const [data, changeStud] = useState([])
+    const fetchData = ()=>{
+        axios.post("http://localhost:8080/view").then(
+            (response)=>{
+                changeStud(response.data)
             }
-        ]
-    )
-    
-
+        ).catch(
+            (error)=>{
+                console.log(error.message)
+                alert(error.message)
+            }
+        ).finally()
+    }
+    useEffect(()=>{fetchData()},[])
     return (
         <div>
             <Navbar />
